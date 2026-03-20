@@ -20,17 +20,16 @@
       justify-content: center;
     }
 
-    /* Wrapper centers the nav+content unit */
     .wrapper {
       display: flex;
       width: 100%;
       max-width: 1100px;
+      min-height: 100vh;
       padding: 64px 40px 80px;
       gap: 64px;
       align-items: flex-start;
     }
 
-    /* Left nav */
     nav {
       position: sticky;
       top: 64px;
@@ -53,11 +52,7 @@
     nav a:hover { color: #555; }
     nav a.active { color: #111; }
 
-    /* Content area */
-    main {
-      flex: 1;
-      min-width: 0;
-    }
+    main { flex: 1; min-width: 0; }
 
     section { display: none; }
     section.active { display: block; }
@@ -125,7 +120,7 @@
 
     @media (max-width: 700px) {
       body { display: block; }
-      .wrapper { flex-direction: column; padding: 20px 16px 60px; gap: 0; }
+      .wrapper { flex-direction: column; padding: 0 16px 60px; gap: 0; min-height: unset; }
       nav {
         position: sticky;
         top: 0;
@@ -140,13 +135,13 @@
         z-index: 100;
       }
       nav a { font-size: 0.82rem; margin-right: 14px; padding: 4px 0; }
+      main { padding-top: 24px; }
       h1 { font-size: 1.6rem; }
       .links a, .links span { font-size: 0.85rem; margin-right: 10px; }
     }
   </style>
 </head>
 <body>
-
   <div class="wrapper">
 
     <nav>
