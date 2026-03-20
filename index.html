@@ -15,40 +15,48 @@
       background: #fff;
       margin: 0;
       padding: 0;
-      display: flex;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
     }
 
+    /* Wrapper centers the nav+content unit */
+    .wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 1100px;
+      padding: 64px 40px 80px;
+      gap: 64px;
+      align-items: flex-start;
+    }
+
+    /* Left nav */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 180px;
-      height: 100vh;
-      border-right: 1px solid #ddd;
-      padding: 48px 24px;
+      position: sticky;
+      top: 64px;
+      width: 160px;
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      background: #fff;
+      gap: 8px;
     }
     nav a {
       display: block;
       font-size: 0.95rem;
       font-weight: bold;
-      color: #aaa;
+      color: #bbb;
       text-decoration: none;
       cursor: pointer;
-      padding: 3px 0;
+      padding: 2px 0;
+      transition: color 0.15s;
     }
     nav a:hover { color: #555; }
     nav a.active { color: #111; }
 
+    /* Content area */
     main {
-      margin-left: 180px;
-      padding: 48px 60px 80px;
-      max-width: 900px;
-      width: 100%;
+      flex: 1;
+      min-width: 0;
     }
 
     section { display: none; }
@@ -116,22 +124,22 @@
     .exp-bullets li { margin-bottom: 4px; }
 
     @media (max-width: 700px) {
-      body { flex-direction: column; }
+      body { display: block; }
+      .wrapper { flex-direction: column; padding: 20px 16px 60px; gap: 0; }
       nav {
         position: sticky;
         top: 0;
         width: 100%;
-        height: auto;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 0;
-        padding: 10px 16px;
-        border-right: none;
+        background: #fff;
         border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        margin-bottom: 32px;
         z-index: 100;
       }
       nav a { font-size: 0.82rem; margin-right: 14px; padding: 4px 0; }
-      main { margin-left: 0; padding: 24px 16px 60px; }
       h1 { font-size: 1.6rem; }
       .links a, .links span { font-size: 0.85rem; margin-right: 10px; }
     }
@@ -139,466 +147,469 @@
 </head>
 <body>
 
-  <nav>
-    <a data-section="about">About</a>
-    <a data-section="publications">Publications</a>
-    <a data-section="datasets">Datasets</a>
-    <a data-section="awards">Awards</a>
-    <a data-section="talks">Talks</a>
-    <a data-section="speaking">Speaking &amp; Media</a>
-    <a data-section="writing">Writing</a>
-    <a data-section="mentorship">Mentorship</a>
-    <a data-section="experience">Experience</a>
-  </nav>
-
-  <main>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h1>Aparna Komarla</h1>
-      <p class="subtitle">Berkeley, California</p>
-      <p>Data scientist and applied researcher working at the intersection of artificial intelligence, law, and social policy.</p>
-
-      <div class="links">
-        <a href="https://linkedin.com/in/apkomarla/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.57c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.134 1.445-2.134 2.939v5.668H9.358V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.368-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.017H3.555V9h3.564v11.45zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          linkedin.com/in/apkomarla/
-        </a>
-        <a href="https://github.com/akomarla" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          github.com/akomarla
-        </a>
-        <span>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          aparna.komarla@gmail.com &nbsp;&middot;&nbsp; aparna.komarla@duke.edu
-        </span>
-      </div>
-
-      <p class="sublabel">Things I'm working on</p>
-
-      <div class="item">
-        <div class="item-title">Founder &mdash; Redo.io</div>
-        <div class="item-venue">Funded by Urban Institute, Microsoft, and LexLab. Using AI to help people in prison get a second chance under California's resentencing laws.</div>
-        <div class="item-link"><a href="https://redoio.info" target="_blank">https://redoio.info</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">Responsible AI Fellow &mdash; Duke University School of Law</div>
-        <div class="item-venue">Researching how AI can be designed responsibly for high-stakes legal decisions.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Data Scientist &mdash; Intel Foundry</div>
-        <div class="item-venue">Building forecasting models to help semiconductor leaders navigate a volatile global market.</div>
-      </div>
-
-      <p class="sublabel">Things I've worked on</p>
-
-      <div class="item">
-        <div class="item-title">Founder &mdash; Covid In Custody Project</div>
-        <div class="item-venue">Built the only public COVID-19 dataset for all 58 California jails &mdash; exposing outbreaks, deaths, and government failures through 250+ public records requests.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Data Scientist &mdash; Solidigm (SK Hynix / Intel NSG)</div>
-        <div class="item-venue">Predicted SSD failures in data centers before they happened, preventing catastrophic data loss for customers at scale.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Research Data Analyst &mdash; UC Berkeley &amp; Stanford Computational Culture Lab</div>
-        <div class="item-venue">Applied NLP to measure how power, diversity, and leadership actually show up in the way people communicate at work.</div>
-      </div>
-
-      <p class="sublabel">Education</p>
-
-      <div class="item">
-        <div class="item-title">University of California, Davis</div>
-        <div class="item-venue">B.S. Applied Mathematics</div>
-        <div class="item-meta">March 2021</div>
-      </div>
-    </section>
-
-
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-
-      <p class="sublabel">Journal Papers</p>
-
-      <div class="item">
-        <div class="item-title">Secretive Sheriffs: Opacity and Variation in California's Jail Responses to COVID-19</div>
-        <div class="item-venue">Nevada Law Journal, 25 Nev. L.J. 557</div>
-        <div class="item-link"><a href="https://scholars.law.unlv.edu/nlj/vol25/iss3/4" target="_blank">https://scholars.law.unlv.edu/nlj/vol25/iss3/4</a></div>
-        <div class="item-meta">Komarla, A. &amp; Aviram, H. (2025)</div>
-      </div>
-
-      <p class="sublabel">Conference Papers</p>
-
-      <div class="item">
-        <div class="item-title">AI-Powered Resentencing: Bridging California's Second-Chance Gap Through Natural Language and Vector-Based Legal Analytics</div>
-        <div class="item-venue">Association for Public Policy &amp; Management (APPAM) 2025</div>
-        <div class="item-link"><a href="https://convention2.allacademic.com/one/appam/appam25/online_program_direct_link/view_session/2304555/" target="_blank">https://convention2.allacademic.com/one/appam/appam25/online_program_direct_link/view_session/2304555/</a></div>
-        <div class="item-meta">Komarla, A. (2025)</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Can LLMs Synthesize Court-Ready Statistical Evidence? Evaluating AI-Assisted Sentencing Bias Analysis for California Racial Justice Act Claims</div>
-        <div class="item-venue">ACM CHI Conference on Human Factors in Computing Systems, CHI 2026</div>
-        <div class="item-link"><a href="https://arxiv.org/abs/2603.04804" target="_blank">https://arxiv.org/abs/2603.04804</a></div>
-        <div class="item-meta">Komarla, A. (2026)</div>
-      </div>
-
-      <p class="sublabel">Workshop Papers</p>
-
-      <div class="item">
-        <div class="item-title">AI-Powered Resentencing: Bridging California's Second-Chance Gap Through Natural Language and Vector-Based Legal Analytics</div>
-        <div class="item-venue">AI for Access to Justice (AI4A2J) Workshop, JURIX</div>
-        <div class="item-link"><a href="https://dx.doi.org/10.2139/ssrn.5272917" target="_blank">https://dx.doi.org/10.2139/ssrn.5272917</a></div>
-        <div class="item-meta">Komarla, A. (2025)</div>
-        <div class="item-note">Note: Presented as a case study at the AI for Access to Justice (AI4A2J) Workshop, International Conference on AI and the Law (ICAIL) 2025 hosted at Northwestern University, Pritzker School of Law.</div>
-      </div>
-
-      <p class="sublabel">Working Papers</p>
-
-      <div class="item">
-        <div class="item-title">Dynamical Systems Models for Market Evolution: A Mechanistic Alternative to Autoregressive Methods</div>
-        <div class="item-venue">Institute for Operations Research and Management Science (INFORMS) 2025</div>
-        <div class="item-link"><a href="https://arxiv.org/abs/2510.06778" target="_blank">https://arxiv.org/abs/2510.06778</a></div>
-        <div class="item-meta">Komarla, A. &amp; Hill, M. (2025)</div>
-      </div>
-
-    </section>
-
-
-    <!-- DATASETS -->
-    <section id="datasets">
-
-      <p class="sublabel">Open Datasets</p>
-
-      <div class="item">
-        <div class="item-title">Demographics and Commitments of California's Prison Population</div>
-        <div class="item-venue">Harvard Dataverse</div>
-        <div class="item-link"><a href="https://doi.org/10.7910/DVN/QCTMSI" target="_blank">https://doi.org/10.7910/DVN/QCTMSI</a></div>
-        <div class="item-meta">Redo.io, 2025</div>
-      </div>
-      <div class="item">
-        <div class="item-title">COVID-19 in California's County Jail System</div>
-        <div class="item-venue">Harvard Dataverse</div>
-        <div class="item-link"><a href="https://doi.org/10.7910/DVN/OE2PM4" target="_blank">https://doi.org/10.7910/DVN/OE2PM4</a></div>
-        <div class="item-meta">Covid In Custody Project, 2021</div>
-      </div>
-
-    </section>
-
-
-    <!-- AWARDS -->
-    <section id="awards">
-
-      <p class="sublabel">Funding Raised</p>
-
-      <p class="subheading">Redo.io</p>
-
-      <div class="item">
-        <div class="item-title">Urban Institute &amp; Microsoft Catalyst Grant</div>
-        <div class="item-link"><a href="https://www.urban.org/projects/catalyst-grant-program/redoio" target="_blank">https://www.urban.org/projects/catalyst-grant-program/redoio</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">LexLab Justice Technology Accelerator Runner-up Winner</div>
-        <div class="item-venue">$2,500</div>
-      </div>
-      <div class="item">
-        <div class="item-title">FastForward Grant</div>
-        <div class="item-venue">$2,500</div>
-      </div>
-
-      <p class="subheading">Covid In Custody Project</p>
-
-      <div class="item">
-        <div class="item-title">ETH Zurich Travel Grant</div>
-        <div class="item-venue">$5,000</div>
-        <div class="item-meta">Funding for 2 interns and myself.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">OpenNews &amp; Mozilla Open Internet Foundation Award</div>
-        <div class="item-venue">$1,000</div>
-      </div>
-
-      <p class="sublabel">Personal Awards</p>
-
-      <div class="item">
-        <div class="item-title">ACM FAccT Travel Grant</div>
-        <div class="item-venue">$1,500</div>
-      </div>
-
-    </section>
-
-
-    <!-- TALKS -->
-    <section id="talks">
-
-      <p class="sublabel">Conference Presentations / Contributed Talks</p>
-
-      <div class="item">
-        <div class="item-title">Building Transparent AI Systems for Justice: From Criminal Reform to Legal Access</div>
-        <div class="item-venue">ACM FAccT 2025 Tutorial</div>
-        <div class="item-link"><a href="https://dl.acm.org/action/showFmPdf?doi=10.1145%2F3715275" target="_blank">https://dl.acm.org/action/showFmPdf?doi=10.1145%2F3715275</a></div>
-        <div class="item-link"><a href="https://www.youtube.com/watch?v=6NF_Qxoqll8" target="_blank">https://www.youtube.com/watch?v=6NF_Qxoqll8</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">AI-Powered Resentencing: Bridging California's Second-Chance Gap Through Natural Language and Vector-Based Analytics</div>
-        <div class="item-venue">International Conference on AI and the Law (ICAIL), AI4A2J Workshop 2025</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Building Ethical AI/ML Decision Making Systems for Justice Reform</div>
-        <div class="item-venue">INFORMS Analytics Conference 2025</div>
-        <div class="item-link"><a href="https://meetings.informs.org/wordpress/analytics2025/speaker/aparna-komarla/" target="_blank">https://meetings.informs.org/wordpress/analytics2025/speaker/aparna-komarla/</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">Building Ethical AI/ML Decision Making Systems for Justice Reform</div>
-        <div class="item-venue">Association for Public Policy &amp; Management (APPAM) 2025 &middot; Session track: Crime, Justice &amp; Drugs</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Dynamical Systems Models for Market Evolution</div>
-        <div class="item-venue">INFORMS Annual Meeting 2024</div>
-        <div class="item-link"><a href="https://submissions.mirasmart.com/InformsAnnual2024/Itinerary/PresentationDetail.aspx?evdid=7897" target="_blank">https://submissions.mirasmart.com/InformsAnnual2024/Itinerary/PresentationDetail.aspx?evdid=7897</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">Improving COVID-19 data transparency for jails</div>
-        <div class="item-venue">European Computational Journalism Conference 2023, ETH Zurich</div>
-        <div class="item-link"><a href="https://videoarchiv.ethz.ch/events/2023/computation/62ba322d-bc70-4d88-8292-88fd3b73c86c.html" target="_blank">https://videoarchiv.ethz.ch/events/2023/computation/62ba322d-bc70-4d88-8292-88fd3b73c86c.html</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">COVID-19 Data Transparency for Marginalized Populations</div>
-        <div class="item-venue">INFORMS Healthcare Conference 2023 &middot; Session track: COVID-19 and Health Equity</div>
-        <div class="item-link"><a href="https://3449182.fs1.hubspotusercontent-na1.net/hubfs/3449182/2023_INFORMS_Healthcare_Conference_Program.pdf" target="_blank">https://3449182.fs1.hubspotusercontent-na1.net/hubfs/3449182/2023_INFORMS_Healthcare_Conference_Program.pdf</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">Teaching Quant Reasoning in Prisons Using Public Health Data</div>
-        <div class="item-venue">Nat'l Conf. on Higher Education in Prisons 2023</div>
-      </div>
-
-      <p class="sublabel">Conference Presentations / Invited Talks</p>
-
-      <div class="item">
-        <div class="item-title">Building Ethical AI/ML Decision Making Systems for Justice Reform</div>
-        <div class="item-venue">INFORMS Annual Meeting 2025 &middot; Session track: Data-driven Policy Making for Healthcare and Social Responsibility</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Secretive Sheriffs: Opacity and Variation in California's Jail Responses to COVID-19</div>
-        <div class="item-venue">Shadows of Confinement Symposium 2025, University of Nevada</div>
-      </div>
-
-      <p class="sublabel">Workshops</p>
-
-      <div class="item">
-        <div class="item-title">Improving COVID-19 Data Transparency for Jails</div>
-        <div class="item-venue">SRCCON and Mozilla Open Internet Foundation 2023</div>
-        <div class="item-link"><a href="https://2023.srccon.org/program/#session-foi-laws-covid" target="_blank">https://2023.srccon.org/program/#session-foi-laws-covid</a></div>
-      </div>
-
-    </section>
-
-
-    <!-- SPEAKING & MEDIA -->
-    <section id="speaking">
-
-      <p class="sublabel">Speaking</p>
-
-      <div class="item">
-        <div class="item-title">Speaker, Women in AI Conference 2025</div>
-        <div class="item-venue">Vanderbilt Law School</div>
-        <div class="item-link"><a href="https://law.vanderbilt.edu/inaugural-womenai-summit-features-programming-at-the-intersection-of-technology-law-and-gender-equality/" target="_blank">https://law.vanderbilt.edu/inaugural-womenai-summit-features-programming-at-the-intersection-of-technology-law-and-gender-equality/</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">Panelist, Justice Innovation Summit 2025: Research and Data Perspectives on Resentencing</div>
-        <div class="item-venue">Dream.Org and Arnold Ventures</div>
-        <div class="item-link"><a href="https://dream.org/news-articles/tech-meets-justice-scaling-expungement-solutions-at-dream-orgs-justice-innovation-summit/" target="_blank">https://dream.org/news-articles/tech-meets-justice-scaling-expungement-solutions-at-dream-orgs-justice-innovation-summit/</a></div>
-      </div>
-      <div class="item">
-        <div class="item-title">Presenter, CodeX 2025</div>
-        <div class="item-venue">Stanford Law School, Center for Legal Informatics</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Speaker, Impact Labs Fellowship</div>
-        <div class="item-meta">2024, 2025</div>
-      </div>
-
-      <p class="sublabel">Media Features</p>
-
-      <div class="item">
-        <div class="item-title">11 Insights from 11 Women in AI You Should Know</div>
-        <div class="item-venue">Relativity Blog</div>
-        <div class="item-link"><a href="https://www.relativity.com/blog/11-insights-from-11-women-in-ai-you-should-know/" target="_blank">https://www.relativity.com/blog/11-insights-from-11-women-in-ai-you-should-know/</a></div>
-        <div class="item-meta">Featured as a leader in AI and law for building human-centered solutions for high-stakes decision-making problems.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Human-Centered AI at ICAIL's Access to Justice Workshop</div>
-        <div class="item-venue">Stanford Law, Justice Innovation Blog</div>
-        <div class="item-link"><a href="https://justiceinnovation.law.stanford.edu/human-centered-ai-at-icails-access-to-justice-workshop/" target="_blank">https://justiceinnovation.law.stanford.edu/human-centered-ai-at-icails-access-to-justice-workshop/</a></div>
-        <div class="item-meta">Highlighted for presenting research on designing transparent and interpretable AI tools for resentencing review.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Technology and Policy for Changing the World</div>
-        <div class="item-venue">MIT Technology and Policy Program Hackathon</div>
-        <div class="item-link"><a href="https://tpp.mit.edu/news/technology-and-policy-for-changing-the-world/" target="_blank">https://tpp.mit.edu/news/technology-and-policy-for-changing-the-world/</a></div>
-        <div class="item-meta">Highlighted for sponsoring a challenge to advance justice reform with data science and public interest technology.</div>
-      </div>
-
-    </section>
-
-
-    <!-- WRITING -->
-    <section id="writing">
-
-      <p class="sublabel">Reports</p>
-
-      <div class="item">
-        <div class="item-title">COVID-19 Vaccination Data in California Jails: Lessons from an Imperfect Model</div>
-        <div class="item-venue">UCLA Law COVID Behind Bars Data Project</div>
-        <div class="item-link"><a href="https://uclacovidbehindbars.org/covid-vaccination-data-in-california-jails" target="_blank">https://uclacovidbehindbars.org/covid-vaccination-data-in-california-jails</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; November 2021</div>
-      </div>
-      <div class="item">
-        <div class="item-title">In California Jails, Sheriffs Have Been Left in Charge of COVID Mitigation. The Results Have Been Disastrous.</div>
-        <div class="item-venue">UCLA Law COVID Behind Bars Data Project</div>
-        <div class="item-link"><a href="https://uclacovidbehindbars.org/sheriffs-california-jails" target="_blank">https://uclacovidbehindbars.org/sheriffs-california-jails</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; May 2022</div>
-      </div>
-
-      <p class="sublabel">Op-Eds</p>
-
-      <div class="item">
-        <div class="item-title">S.F.'s Jails Are Leading California in COVID Prevention. How Are They Doing It? No One Knows.</div>
-        <div class="item-venue">San Francisco Chronicle</div>
-        <div class="item-link"><a href="https://www.sfchronicle.com/opinion/openforum/article/S-F-s-jails-are-leading-California-in-COVID-16613932.php" target="_blank">https://www.sfchronicle.com/opinion/openforum/article/S-F-s-jails-are-leading-California-in-COVID-16613932.php</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; November 2021</div>
-      </div>
-      <div class="item">
-        <div class="item-title">California Jails Failed to Monitor or Report COVID Data. Some Didn't Even Bother.</div>
-        <div class="item-venue">CalMatters</div>
-        <div class="item-link"><a href="https://calmatters.org/commentary/2022/12/california-covid-jail-data-report/" target="_blank">https://calmatters.org/commentary/2022/12/california-covid-jail-data-report/</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; December 2022</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Sacramento Sheriff Is Hiding Information About Jail COVID Outbreaks from the Public</div>
-        <div class="item-venue">Sacramento Bee</div>
-        <div class="item-link"><a href="https://www.sacbee.com/opinion/op-ed/article257040992.html" target="_blank">https://www.sacbee.com/opinion/op-ed/article257040992.html</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; January 2022</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Bay Area Counties Lead COVID Mitigation Efforts in Jails.</div>
-        <div class="item-venue">East Bay Times</div>
-        <div class="item-link"><a href="https://www.eastbaytimes.com/2022/03/19/opinion-bay-area-counties-lead-covid-mitigation-efforts-in-jails/" target="_blank">https://www.eastbaytimes.com/2022/03/19/opinion-bay-area-counties-lead-covid-mitigation-efforts-in-jails/</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; March 2022</div>
-      </div>
-      <div class="item">
-        <div class="item-title">With COVID Surges, There's No Return to Normalcy in Jails and Prisons.</div>
-        <div class="item-venue">Mercury News</div>
-        <div class="item-link"><a href="https://www.mercurynews.com/2022/08/06/opinion-with-covid-surges-theres-no-return-to-normalcy-in-jails-and-prisons/" target="_blank">https://www.mercurynews.com/2022/08/06/opinion-with-covid-surges-theres-no-return-to-normalcy-in-jails-and-prisons/</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; August 2022</div>
-      </div>
-      <div class="item">
-        <div class="item-title">California Jails Are Slow to Share COVID-19 Infection and Vaccination Data</div>
-        <div class="item-venue">San Diego Union-Tribune</div>
-        <div class="item-link"><a href="https://www.sandiegouniontribune.com/opinion/commentary/story/2022-12-02/covid-19-california-jails" target="_blank">https://www.sandiegouniontribune.com/opinion/commentary/story/2022-12-02/covid-19-california-jails</a></div>
-        <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; December 2022</div>
-      </div>
-      <div class="item">
-        <div class="item-title">San Joaquin Valley Sheriffs Do Poor Job of Monitoring, Reporting COVID Data</div>
-        <div class="item-venue">Fresno Bee</div>
-        <div class="item-link"><a href="https://www.fresnobee.com/opinion/article276763866.html" target="_blank">https://www.fresnobee.com/opinion/article276763866.html</a></div>
-        <div class="item-meta">Komarla, A. &amp; Stitt, S. &middot; Covid In Custody Project &middot; June 2023</div>
-      </div>
-
-    </section>
-
-
-    <!-- MENTORSHIP -->
-    <section id="mentorship">
-
-      <p class="sublabel">Industry</p>
-
-      <div class="item">
-        <div class="item-title">Industry Mentor</div>
-        <div class="item-venue">UC Davis Master of Science in Business Analytics (MSBA) Capstone Project 2025</div>
-        <div class="item-meta">Sponsoring a year-long project through Redo.io for 4 MSBA students.</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Industry Mentor</div>
-        <div class="item-venue">MIT Technology and Policy Hackathon 2024</div>
-        <div class="item-meta">Sponsored a legal AI challenge and mentored 45+ students in a 48-hour challenge to build data science solutions for resentencing.</div>
-      </div>
-
-      <p class="sublabel">Education</p>
-
-      <div class="item">
-        <div class="item-title">Course Instructor &mdash; Introductory Data Analysis</div>
-        <div class="item-venue">Mount Tamalpais College at San Quentin</div>
-        <div class="item-meta">Curated course syllabus including reading materials, assessments, and a final capstone project. Mentored students on data analysis projects presented at MTC's 2023 Annual Research Showcase.</div>
-      </div>
-
-    </section>
-
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-
-      <p class="sublabel">Applied AI</p>
-
-      <div class="item">
-        <div class="item-title">Founder, Lead Data Scientist &mdash; Redo.io</div>
-        <div class="item-venue">July 2023 &ndash; Present</div>
-        <ul class="exp-bullets">
-          <li>Developed algorithmic systems to advance criminal justice resentencing policy implementation</li>
-          <li>Partnered with Stanford Law's Three Strikes Project and CA's Office of the State Public Defender to design methods for racial bias detection, similar case search, and identify cases for resentencing</li>
-          <li>Runner-up winner at LexLab's 2024 Justice Tech Startup Accelerator hosted by Dream.Org and UC Law San Francisco</li>
-          <li>Awarded competitive funding from the Urban Institute and Microsoft through the Catalyst Grant Program</li>
-          <li>Responsible AI Fellow at Duke University School of Law researching AI applications to second-chance laws</li>
-        </ul>
-      </div>
-
-      <p class="sublabel">Industry</p>
-
-      <div class="item">
-        <div class="item-title">Data Scientist &mdash; Intel Foundry</div>
-        <div class="item-venue">December 2023 &ndash; Present</div>
-        <ul class="exp-bullets">
-          <li>Built dynamical systems (ODE) models to simulate semiconductor market behavior for business leaders</li>
-          <li>Built time-series models (LSTM, ARIMA) to predict silicon industry inflections using macroeconomic data for scenario planning</li>
-          <li>Published a white paper to advise VPs of Intel Foundry on market strategy under varying geopolitical conditions</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="item-title">Data Scientist &mdash; Solidigm (SK Hynix/Intel NSG)</div>
-        <div class="item-venue">March 2022 &ndash; December 2023</div>
-        <ul class="exp-bullets">
-          <li>Created anomaly detectors with BERT on firmware logs to diagnose drive failures for technology development</li>
-          <li>Built time-series classifiers for SSD failure prediction in data centers using firmware behavioral indicators like rate of reads and writes to prevent catastrophic data loss for customers</li>
-          <li>Published an open-source Exponential Smoothing optimization package on PyPI. Available here: https://pypi.org/project/ExpSmoothing/</li>
-        </ul>
-      </div>
-
-      <p class="sublabel">Data Science + Journalism</p>
-
-      <div class="item">
-        <div class="item-title">Founder, Lead Data Journalist &mdash; Covid In Custody Project</div>
-        <div class="item-venue">May 2020 &ndash; September 2023</div>
-        <ul class="exp-bullets">
-          <li>Built the only publicly-available comprehensive COVID-19 dataset for 58 California jails</li>
-          <li>Led a team of 60+ interns to file over 250+ public records requests to state agencies for information that exposed outbreaks, uncovered undocumented jail deaths and policy failures</li>
-          <li>Designed data transparency metrics to quantify government transparency and integrated datasets into the CDC's COVID tracker through the UCLA Law Behind Bars Data Project</li>
-          <li>Published op-eds, research and data reports in the SF Chronicle, CalMatters, Nevada Law Journal and UCLA Law Behind Bars Data Project respectively</li>
-          <li>Cited in peer-reviewed papers in epidemiology and public health, and the book FESTER by Prof. Hadar Aviram</li>
-        </ul>
-      </div>
-
-      <p class="sublabel">Research</p>
-
-      <div class="item">
-        <div class="item-title">Research Data Analyst &mdash; UC Berkeley &amp; Stanford Computational Culture Lab</div>
-        <div class="item-venue">August 2021 &ndash; March 2022</div>
-        <ul class="exp-bullets">
-          <li>Built and deployed NLP models (word2vec, BERT) to measure workplace cultural dynamics including leadership patterns and diversity in digital communications as part of a pre-doctoral program at UC Berkeley Haas School of Business and Stanford Graduate School of Business</li>
-        </ul>
-      </div>
-
-    </section>
-
-  </main>
+  <div class="wrapper">
+
+    <nav>
+      <a data-section="about">About</a>
+      <a data-section="publications">Publications</a>
+      <a data-section="datasets">Datasets</a>
+      <a data-section="awards">Awards</a>
+      <a data-section="talks">Talks</a>
+      <a data-section="speaking">Speaking &amp; Media</a>
+      <a data-section="writing">Writing</a>
+      <a data-section="mentorship">Mentorship</a>
+      <a data-section="experience">Experience</a>
+    </nav>
+
+    <main>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h1>Aparna Komarla</h1>
+        <p class="subtitle">Berkeley, California</p>
+        <p>Data scientist and applied researcher working at the intersection of artificial intelligence, law, and social policy.</p>
+
+        <div class="links">
+          <a href="https://linkedin.com/in/apkomarla/" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.554v-5.57c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.134 1.445-2.134 2.939v5.668H9.358V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.368-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.017H3.555V9h3.564v11.45zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/apkomarla/
+          </a>
+          <a href="https://github.com/akomarla" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            github.com/akomarla
+          </a>
+          <span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            aparna.komarla@gmail.com &nbsp;&middot;&nbsp; aparna.komarla@duke.edu
+          </span>
+        </div>
+
+        <p class="sublabel">Things I'm working on</p>
+
+        <div class="item">
+          <div class="item-title">Founder &mdash; Redo.io</div>
+          <div class="item-venue">Funded by Urban Institute, Microsoft, and LexLab. Using AI to help people in prison get a second chance under California's resentencing laws.</div>
+          <div class="item-link"><a href="https://redoio.info" target="_blank">https://redoio.info</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">Responsible AI Fellow &mdash; Duke University School of Law</div>
+          <div class="item-venue">Researching how AI can be designed responsibly for high-stakes legal decisions.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Data Scientist &mdash; Intel Foundry</div>
+          <div class="item-venue">Building forecasting models to help semiconductor leaders navigate a volatile global market.</div>
+        </div>
+
+        <p class="sublabel">Things I've worked on</p>
+
+        <div class="item">
+          <div class="item-title">Founder &mdash; Covid In Custody Project</div>
+          <div class="item-venue">Built the only public COVID-19 dataset for all 58 California jails &mdash; exposing outbreaks, deaths, and government failures through 250+ public records requests.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Data Scientist &mdash; Solidigm (SK Hynix / Intel NSG)</div>
+          <div class="item-venue">Predicted SSD failures in data centers before they happened, preventing catastrophic data loss for customers at scale.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Research Data Analyst &mdash; UC Berkeley &amp; Stanford Computational Culture Lab</div>
+          <div class="item-venue">Applied NLP to measure how power, diversity, and leadership actually show up in the way people communicate at work.</div>
+        </div>
+
+        <p class="sublabel">Education</p>
+
+        <div class="item">
+          <div class="item-title">University of California, Davis</div>
+          <div class="item-venue">B.S. Applied Mathematics</div>
+          <div class="item-meta">March 2021</div>
+        </div>
+      </section>
+
+
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+
+        <p class="sublabel">Journal Papers</p>
+
+        <div class="item">
+          <div class="item-title">Secretive Sheriffs: Opacity and Variation in California's Jail Responses to COVID-19</div>
+          <div class="item-venue">Nevada Law Journal, 25 Nev. L.J. 557</div>
+          <div class="item-link"><a href="https://scholars.law.unlv.edu/nlj/vol25/iss3/4" target="_blank">https://scholars.law.unlv.edu/nlj/vol25/iss3/4</a></div>
+          <div class="item-meta">Komarla, A. &amp; Aviram, H. (2025)</div>
+        </div>
+
+        <p class="sublabel">Conference Papers</p>
+
+        <div class="item">
+          <div class="item-title">AI-Powered Resentencing: Bridging California's Second-Chance Gap Through Natural Language and Vector-Based Legal Analytics</div>
+          <div class="item-venue">Association for Public Policy &amp; Management (APPAM) 2025</div>
+          <div class="item-link"><a href="https://convention2.allacademic.com/one/appam/appam25/online_program_direct_link/view_session/2304555/" target="_blank">https://convention2.allacademic.com/one/appam/appam25/online_program_direct_link/view_session/2304555/</a></div>
+          <div class="item-meta">Komarla, A. (2025)</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Can LLMs Synthesize Court-Ready Statistical Evidence? Evaluating AI-Assisted Sentencing Bias Analysis for California Racial Justice Act Claims</div>
+          <div class="item-venue">ACM CHI Conference on Human Factors in Computing Systems, CHI 2026</div>
+          <div class="item-link"><a href="https://arxiv.org/abs/2603.04804" target="_blank">https://arxiv.org/abs/2603.04804</a></div>
+          <div class="item-meta">Komarla, A. (2026)</div>
+        </div>
+
+        <p class="sublabel">Workshop Papers</p>
+
+        <div class="item">
+          <div class="item-title">AI-Powered Resentencing: Bridging California's Second-Chance Gap Through Natural Language and Vector-Based Legal Analytics</div>
+          <div class="item-venue">AI for Access to Justice (AI4A2J) Workshop, JURIX</div>
+          <div class="item-link"><a href="https://dx.doi.org/10.2139/ssrn.5272917" target="_blank">https://dx.doi.org/10.2139/ssrn.5272917</a></div>
+          <div class="item-meta">Komarla, A. (2025)</div>
+          <div class="item-note">Note: Presented as a case study at the AI for Access to Justice (AI4A2J) Workshop, International Conference on AI and the Law (ICAIL) 2025 hosted at Northwestern University, Pritzker School of Law.</div>
+        </div>
+
+        <p class="sublabel">Working Papers</p>
+
+        <div class="item">
+          <div class="item-title">Dynamical Systems Models for Market Evolution: A Mechanistic Alternative to Autoregressive Methods</div>
+          <div class="item-venue">Institute for Operations Research and Management Science (INFORMS) 2025</div>
+          <div class="item-link"><a href="https://arxiv.org/abs/2510.06778" target="_blank">https://arxiv.org/abs/2510.06778</a></div>
+          <div class="item-meta">Komarla, A. &amp; Hill, M. (2025)</div>
+        </div>
+
+      </section>
+
+
+      <!-- DATASETS -->
+      <section id="datasets">
+
+        <p class="sublabel">Open Datasets</p>
+
+        <div class="item">
+          <div class="item-title">Demographics and Commitments of California's Prison Population</div>
+          <div class="item-venue">Harvard Dataverse</div>
+          <div class="item-link"><a href="https://doi.org/10.7910/DVN/QCTMSI" target="_blank">https://doi.org/10.7910/DVN/QCTMSI</a></div>
+          <div class="item-meta">Redo.io, 2025</div>
+        </div>
+        <div class="item">
+          <div class="item-title">COVID-19 in California's County Jail System</div>
+          <div class="item-venue">Harvard Dataverse</div>
+          <div class="item-link"><a href="https://doi.org/10.7910/DVN/OE2PM4" target="_blank">https://doi.org/10.7910/DVN/OE2PM4</a></div>
+          <div class="item-meta">Covid In Custody Project, 2021</div>
+        </div>
+
+      </section>
+
+
+      <!-- AWARDS -->
+      <section id="awards">
+
+        <p class="sublabel">Funding Raised</p>
+
+        <p class="subheading">Redo.io</p>
+
+        <div class="item">
+          <div class="item-title">Urban Institute &amp; Microsoft Catalyst Grant</div>
+          <div class="item-link"><a href="https://www.urban.org/projects/catalyst-grant-program/redoio" target="_blank">https://www.urban.org/projects/catalyst-grant-program/redoio</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">LexLab Justice Technology Accelerator Runner-up Winner</div>
+          <div class="item-venue">$2,500</div>
+        </div>
+        <div class="item">
+          <div class="item-title">FastForward Grant</div>
+          <div class="item-venue">$2,500</div>
+        </div>
+
+        <p class="subheading">Covid In Custody Project</p>
+
+        <div class="item">
+          <div class="item-title">ETH Zurich Travel Grant</div>
+          <div class="item-venue">$5,000</div>
+          <div class="item-meta">Funding for 2 interns and myself.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">OpenNews &amp; Mozilla Open Internet Foundation Award</div>
+          <div class="item-venue">$1,000</div>
+        </div>
+
+        <p class="sublabel">Personal Awards</p>
+
+        <div class="item">
+          <div class="item-title">ACM FAccT Travel Grant</div>
+          <div class="item-venue">$1,500</div>
+        </div>
+
+      </section>
+
+
+      <!-- TALKS -->
+      <section id="talks">
+
+        <p class="sublabel">Conference Presentations / Contributed Talks</p>
+
+        <div class="item">
+          <div class="item-title">Building Transparent AI Systems for Justice: From Criminal Reform to Legal Access</div>
+          <div class="item-venue">ACM FAccT 2025 Tutorial</div>
+          <div class="item-link"><a href="https://dl.acm.org/action/showFmPdf?doi=10.1145%2F3715275" target="_blank">https://dl.acm.org/action/showFmPdf?doi=10.1145%2F3715275</a></div>
+          <div class="item-link"><a href="https://www.youtube.com/watch?v=6NF_Qxoqll8" target="_blank">https://www.youtube.com/watch?v=6NF_Qxoqll8</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">AI-Powered Resentencing: Bridging California's Second-Chance Gap Through Natural Language and Vector-Based Analytics</div>
+          <div class="item-venue">International Conference on AI and the Law (ICAIL), AI4A2J Workshop 2025</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Building Ethical AI/ML Decision Making Systems for Justice Reform</div>
+          <div class="item-venue">INFORMS Analytics Conference 2025</div>
+          <div class="item-link"><a href="https://meetings.informs.org/wordpress/analytics2025/speaker/aparna-komarla/" target="_blank">https://meetings.informs.org/wordpress/analytics2025/speaker/aparna-komarla/</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">Building Ethical AI/ML Decision Making Systems for Justice Reform</div>
+          <div class="item-venue">Association for Public Policy &amp; Management (APPAM) 2025 &middot; Session track: Crime, Justice &amp; Drugs</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Dynamical Systems Models for Market Evolution</div>
+          <div class="item-venue">INFORMS Annual Meeting 2024</div>
+          <div class="item-link"><a href="https://submissions.mirasmart.com/InformsAnnual2024/Itinerary/PresentationDetail.aspx?evdid=7897" target="_blank">https://submissions.mirasmart.com/InformsAnnual2024/Itinerary/PresentationDetail.aspx?evdid=7897</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">Improving COVID-19 data transparency for jails</div>
+          <div class="item-venue">European Computational Journalism Conference 2023, ETH Zurich</div>
+          <div class="item-link"><a href="https://videoarchiv.ethz.ch/events/2023/computation/62ba322d-bc70-4d88-8292-88fd3b73c86c.html" target="_blank">https://videoarchiv.ethz.ch/events/2023/computation/62ba322d-bc70-4d88-8292-88fd3b73c86c.html</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">COVID-19 Data Transparency for Marginalized Populations</div>
+          <div class="item-venue">INFORMS Healthcare Conference 2023 &middot; Session track: COVID-19 and Health Equity</div>
+          <div class="item-link"><a href="https://3449182.fs1.hubspotusercontent-na1.net/hubfs/3449182/2023_INFORMS_Healthcare_Conference_Program.pdf" target="_blank">https://3449182.fs1.hubspotusercontent-na1.net/hubfs/3449182/2023_INFORMS_Healthcare_Conference_Program.pdf</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">Teaching Quant Reasoning in Prisons Using Public Health Data</div>
+          <div class="item-venue">Nat'l Conf. on Higher Education in Prisons 2023</div>
+        </div>
+
+        <p class="sublabel">Conference Presentations / Invited Talks</p>
+
+        <div class="item">
+          <div class="item-title">Building Ethical AI/ML Decision Making Systems for Justice Reform</div>
+          <div class="item-venue">INFORMS Annual Meeting 2025 &middot; Session track: Data-driven Policy Making for Healthcare and Social Responsibility</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Secretive Sheriffs: Opacity and Variation in California's Jail Responses to COVID-19</div>
+          <div class="item-venue">Shadows of Confinement Symposium 2025, University of Nevada</div>
+        </div>
+
+        <p class="sublabel">Workshops</p>
+
+        <div class="item">
+          <div class="item-title">Improving COVID-19 Data Transparency for Jails</div>
+          <div class="item-venue">SRCCON and Mozilla Open Internet Foundation 2023</div>
+          <div class="item-link"><a href="https://2023.srccon.org/program/#session-foi-laws-covid" target="_blank">https://2023.srccon.org/program/#session-foi-laws-covid</a></div>
+        </div>
+
+      </section>
+
+
+      <!-- SPEAKING & MEDIA -->
+      <section id="speaking">
+
+        <p class="sublabel">Speaking</p>
+
+        <div class="item">
+          <div class="item-title">Speaker, Women in AI Conference 2025</div>
+          <div class="item-venue">Vanderbilt Law School</div>
+          <div class="item-link"><a href="https://law.vanderbilt.edu/inaugural-womenai-summit-features-programming-at-the-intersection-of-technology-law-and-gender-equality/" target="_blank">https://law.vanderbilt.edu/inaugural-womenai-summit-features-programming-at-the-intersection-of-technology-law-and-gender-equality/</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">Panelist, Justice Innovation Summit 2025: Research and Data Perspectives on Resentencing</div>
+          <div class="item-venue">Dream.Org and Arnold Ventures</div>
+          <div class="item-link"><a href="https://dream.org/news-articles/tech-meets-justice-scaling-expungement-solutions-at-dream-orgs-justice-innovation-summit/" target="_blank">https://dream.org/news-articles/tech-meets-justice-scaling-expungement-solutions-at-dream-orgs-justice-innovation-summit/</a></div>
+        </div>
+        <div class="item">
+          <div class="item-title">Presenter, CodeX 2025</div>
+          <div class="item-venue">Stanford Law School, Center for Legal Informatics</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Speaker, Impact Labs Fellowship</div>
+          <div class="item-meta">2024, 2025</div>
+        </div>
+
+        <p class="sublabel">Media Features</p>
+
+        <div class="item">
+          <div class="item-title">11 Insights from 11 Women in AI You Should Know</div>
+          <div class="item-venue">Relativity Blog</div>
+          <div class="item-link"><a href="https://www.relativity.com/blog/11-insights-from-11-women-in-ai-you-should-know/" target="_blank">https://www.relativity.com/blog/11-insights-from-11-women-in-ai-you-should-know/</a></div>
+          <div class="item-meta">Featured as a leader in AI and law for building human-centered solutions for high-stakes decision-making problems.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Human-Centered AI at ICAIL's Access to Justice Workshop</div>
+          <div class="item-venue">Stanford Law, Justice Innovation Blog</div>
+          <div class="item-link"><a href="https://justiceinnovation.law.stanford.edu/human-centered-ai-at-icails-access-to-justice-workshop/" target="_blank">https://justiceinnovation.law.stanford.edu/human-centered-ai-at-icails-access-to-justice-workshop/</a></div>
+          <div class="item-meta">Highlighted for presenting research on designing transparent and interpretable AI tools for resentencing review.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Technology and Policy for Changing the World</div>
+          <div class="item-venue">MIT Technology and Policy Program Hackathon</div>
+          <div class="item-link"><a href="https://tpp.mit.edu/news/technology-and-policy-for-changing-the-world/" target="_blank">https://tpp.mit.edu/news/technology-and-policy-for-changing-the-world/</a></div>
+          <div class="item-meta">Highlighted for sponsoring a challenge to advance justice reform with data science and public interest technology.</div>
+        </div>
+
+      </section>
+
+
+      <!-- WRITING -->
+      <section id="writing">
+
+        <p class="sublabel">Reports</p>
+
+        <div class="item">
+          <div class="item-title">COVID-19 Vaccination Data in California Jails: Lessons from an Imperfect Model</div>
+          <div class="item-venue">UCLA Law COVID Behind Bars Data Project</div>
+          <div class="item-link"><a href="https://uclacovidbehindbars.org/covid-vaccination-data-in-california-jails" target="_blank">https://uclacovidbehindbars.org/covid-vaccination-data-in-california-jails</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; November 2021</div>
+        </div>
+        <div class="item">
+          <div class="item-title">In California Jails, Sheriffs Have Been Left in Charge of COVID Mitigation. The Results Have Been Disastrous.</div>
+          <div class="item-venue">UCLA Law COVID Behind Bars Data Project</div>
+          <div class="item-link"><a href="https://uclacovidbehindbars.org/sheriffs-california-jails" target="_blank">https://uclacovidbehindbars.org/sheriffs-california-jails</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; May 2022</div>
+        </div>
+
+        <p class="sublabel">Op-Eds</p>
+
+        <div class="item">
+          <div class="item-title">S.F.'s Jails Are Leading California in COVID Prevention. How Are They Doing It? No One Knows.</div>
+          <div class="item-venue">San Francisco Chronicle</div>
+          <div class="item-link"><a href="https://www.sfchronicle.com/opinion/openforum/article/S-F-s-jails-are-leading-California-in-COVID-16613932.php" target="_blank">https://www.sfchronicle.com/opinion/openforum/article/S-F-s-jails-are-leading-California-in-COVID-16613932.php</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; November 2021</div>
+        </div>
+        <div class="item">
+          <div class="item-title">California Jails Failed to Monitor or Report COVID Data. Some Didn't Even Bother.</div>
+          <div class="item-venue">CalMatters</div>
+          <div class="item-link"><a href="https://calmatters.org/commentary/2022/12/california-covid-jail-data-report/" target="_blank">https://calmatters.org/commentary/2022/12/california-covid-jail-data-report/</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; December 2022</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Sacramento Sheriff Is Hiding Information About Jail COVID Outbreaks from the Public</div>
+          <div class="item-venue">Sacramento Bee</div>
+          <div class="item-link"><a href="https://www.sacbee.com/opinion/op-ed/article257040992.html" target="_blank">https://www.sacbee.com/opinion/op-ed/article257040992.html</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; January 2022</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Bay Area Counties Lead COVID Mitigation Efforts in Jails.</div>
+          <div class="item-venue">East Bay Times</div>
+          <div class="item-link"><a href="https://www.eastbaytimes.com/2022/03/19/opinion-bay-area-counties-lead-covid-mitigation-efforts-in-jails/" target="_blank">https://www.eastbaytimes.com/2022/03/19/opinion-bay-area-counties-lead-covid-mitigation-efforts-in-jails/</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; March 2022</div>
+        </div>
+        <div class="item">
+          <div class="item-title">With COVID Surges, There's No Return to Normalcy in Jails and Prisons.</div>
+          <div class="item-venue">Mercury News</div>
+          <div class="item-link"><a href="https://www.mercurynews.com/2022/08/06/opinion-with-covid-surges-theres-no-return-to-normalcy-in-jails-and-prisons/" target="_blank">https://www.mercurynews.com/2022/08/06/opinion-with-covid-surges-theres-no-return-to-normalcy-in-jails-and-prisons/</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; August 2022</div>
+        </div>
+        <div class="item">
+          <div class="item-title">California Jails Are Slow to Share COVID-19 Infection and Vaccination Data</div>
+          <div class="item-venue">San Diego Union-Tribune</div>
+          <div class="item-link"><a href="https://www.sandiegouniontribune.com/opinion/commentary/story/2022-12-02/covid-19-california-jails" target="_blank">https://www.sandiegouniontribune.com/opinion/commentary/story/2022-12-02/covid-19-california-jails</a></div>
+          <div class="item-meta">Komarla, A. &middot; Covid In Custody Project &middot; December 2022</div>
+        </div>
+        <div class="item">
+          <div class="item-title">San Joaquin Valley Sheriffs Do Poor Job of Monitoring, Reporting COVID Data</div>
+          <div class="item-venue">Fresno Bee</div>
+          <div class="item-link"><a href="https://www.fresnobee.com/opinion/article276763866.html" target="_blank">https://www.fresnobee.com/opinion/article276763866.html</a></div>
+          <div class="item-meta">Komarla, A. &amp; Stitt, S. &middot; Covid In Custody Project &middot; June 2023</div>
+        </div>
+
+      </section>
+
+
+      <!-- MENTORSHIP -->
+      <section id="mentorship">
+
+        <p class="sublabel">Industry</p>
+
+        <div class="item">
+          <div class="item-title">Industry Mentor</div>
+          <div class="item-venue">UC Davis Master of Science in Business Analytics (MSBA) Capstone Project 2025</div>
+          <div class="item-meta">Sponsoring a year-long project through Redo.io for 4 MSBA students.</div>
+        </div>
+        <div class="item">
+          <div class="item-title">Industry Mentor</div>
+          <div class="item-venue">MIT Technology and Policy Hackathon 2024</div>
+          <div class="item-meta">Sponsored a legal AI challenge and mentored 45+ students in a 48-hour challenge to build data science solutions for resentencing.</div>
+        </div>
+
+        <p class="sublabel">Education</p>
+
+        <div class="item">
+          <div class="item-title">Course Instructor &mdash; Introductory Data Analysis</div>
+          <div class="item-venue">Mount Tamalpais College at San Quentin</div>
+          <div class="item-meta">Curated course syllabus including reading materials, assessments, and a final capstone project. Mentored students on data analysis projects presented at MTC's 2023 Annual Research Showcase.</div>
+        </div>
+
+      </section>
+
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+
+        <p class="sublabel">Applied AI</p>
+
+        <div class="item">
+          <div class="item-title">Founder, Lead Data Scientist &mdash; Redo.io</div>
+          <div class="item-venue">July 2023 &ndash; Present</div>
+          <ul class="exp-bullets">
+            <li>Developed algorithmic systems to advance criminal justice resentencing policy implementation</li>
+            <li>Partnered with Stanford Law's Three Strikes Project and CA's Office of the State Public Defender to design methods for racial bias detection, similar case search, and identify cases for resentencing</li>
+            <li>Runner-up winner at LexLab's 2024 Justice Tech Startup Accelerator hosted by Dream.Org and UC Law San Francisco</li>
+            <li>Awarded competitive funding from the Urban Institute and Microsoft through the Catalyst Grant Program</li>
+            <li>Responsible AI Fellow at Duke University School of Law researching AI applications to second-chance laws</li>
+          </ul>
+        </div>
+
+        <p class="sublabel">Industry</p>
+
+        <div class="item">
+          <div class="item-title">Data Scientist &mdash; Intel Foundry</div>
+          <div class="item-venue">December 2023 &ndash; Present</div>
+          <ul class="exp-bullets">
+            <li>Built dynamical systems (ODE) models to simulate semiconductor market behavior for business leaders</li>
+            <li>Built time-series models (LSTM, ARIMA) to predict silicon industry inflections using macroeconomic data for scenario planning</li>
+            <li>Published a white paper to advise VPs of Intel Foundry on market strategy under varying geopolitical conditions</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-title">Data Scientist &mdash; Solidigm (SK Hynix/Intel NSG)</div>
+          <div class="item-venue">March 2022 &ndash; December 2023</div>
+          <ul class="exp-bullets">
+            <li>Created anomaly detectors with BERT on firmware logs to diagnose drive failures for technology development</li>
+            <li>Built time-series classifiers for SSD failure prediction in data centers using firmware behavioral indicators like rate of reads and writes to prevent catastrophic data loss for customers</li>
+            <li>Published an open-source Exponential Smoothing optimization package on PyPI. Available here: https://pypi.org/project/ExpSmoothing/</li>
+          </ul>
+        </div>
+
+        <p class="sublabel">Data Science + Journalism</p>
+
+        <div class="item">
+          <div class="item-title">Founder, Lead Data Journalist &mdash; Covid In Custody Project</div>
+          <div class="item-venue">May 2020 &ndash; September 2023</div>
+          <ul class="exp-bullets">
+            <li>Built the only publicly-available comprehensive COVID-19 dataset for 58 California jails</li>
+            <li>Led a team of 60+ interns to file over 250+ public records requests to state agencies for information that exposed outbreaks, uncovered undocumented jail deaths and policy failures</li>
+            <li>Designed data transparency metrics to quantify government transparency and integrated datasets into the CDC's COVID tracker through the UCLA Law Behind Bars Data Project</li>
+            <li>Published op-eds, research and data reports in the SF Chronicle, CalMatters, Nevada Law Journal and UCLA Law Behind Bars Data Project respectively</li>
+            <li>Cited in peer-reviewed papers in epidemiology and public health, and the book FESTER by Prof. Hadar Aviram</li>
+          </ul>
+        </div>
+
+        <p class="sublabel">Research</p>
+
+        <div class="item">
+          <div class="item-title">Research Data Analyst &mdash; UC Berkeley &amp; Stanford Computational Culture Lab</div>
+          <div class="item-venue">August 2021 &ndash; March 2022</div>
+          <ul class="exp-bullets">
+            <li>Built and deployed NLP models (word2vec, BERT) to measure workplace cultural dynamics including leadership patterns and diversity in digital communications as part of a pre-doctoral program at UC Berkeley Haas School of Business and Stanford Graduate School of Business</li>
+          </ul>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
 
   <script>
     document.querySelectorAll('nav a[data-section]').forEach(function(link) {
