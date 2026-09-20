@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akomarla.github.io/sitemap.xml
