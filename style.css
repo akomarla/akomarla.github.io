@@ -51,7 +51,7 @@ nav a.active { color: #111; }
   letter-spacing: 0.07em;
 }
 
-html { scroll-behavior: smooth; overflow-y: scroll; }
+html { overflow-y: scroll; }
 
 /* Own name in author lists: bold look without changing the glyph size. */
 .item-meta strong {
@@ -76,7 +76,6 @@ nav.jump-nav {
   padding: 64px 0 14px;
   margin: -64px 0 4px;
   background: #fff;
-  border-bottom: 1px solid #f0f0f0;
 }
 .jump-nav a {
   flex: 0 0 auto;
@@ -214,6 +213,7 @@ h3 {
   /* Section pills: second sticky row that scrolls sideways. */
   nav.jump-nav {
     top: 41px;
+    border-bottom: none;
     flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
