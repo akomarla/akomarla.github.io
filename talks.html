@@ -197,5 +197,6 @@
     </main>
   </div>
 <script>document.addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector("a.active");if(a&&window.innerWidth<=700){n.scrollLeft=a.parentNode.offsetLeft-(n.clientWidth-a.offsetWidth)/2;}});</script>
+<script>(function(){var j=document.querySelector(".jump-nav");if(!j)return;var links=[].slice.call(j.querySelectorAll("a")),heads=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1));});function upd(){var off=j.getBoundingClientRect().bottom+24,cur=0;heads.forEach(function(h,i){if(h&&h.getBoundingClientRect().top<=off)cur=i;});if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-2)cur=heads.length-1;links.forEach(function(a,i){a.classList.toggle("current",i===cur);});}window.addEventListener("scroll",upd,{passive:true});window.addEventListener("load",upd);upd();})();</script>
 </body>
 </html>

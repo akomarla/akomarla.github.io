@@ -72,8 +72,9 @@ nav.jump-nav {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0 0 14px;
-  margin: 0 0 4px;
+  /* Fill the space above so the pills stay level with the sidebar while scrolling. */
+  padding: 64px 0 14px;
+  margin: -64px 0 4px;
   background: #fff;
   border-bottom: 1px solid #f0f0f0;
 }
@@ -90,7 +91,8 @@ nav.jump-nav {
   padding: 7px 12px;
 }
 .jump-nav a:hover { color: #111; background: #e9e9e9; }
-h2[id] { scroll-margin-top: 72px; }
+.jump-nav a.current { color: #fff; background: #333; }
+h2[id] { scroll-margin-top: 130px; }
 
 main { flex: 1; min-width: 0; }
 
