@@ -24,16 +24,17 @@
 </head>
 <body>
   <div class="wrapper">
-    <nav aria-label="Sections">
-      <a href="/index.html">About</a>
-      <a href="/publications.html">Publications</a>
-      <a href="/datasets.html">Datasets</a>
-      <a href="/awards.html">Awards</a>
-      <a href="/talks.html">Talks</a>
-      <a href="/speaking.html">Speaking &amp; Media</a>
-      <a href="/writing.html">Writing</a>
-      <a href="/mentorship.html">Mentorship</a>
-      <a href="/experience.html">Experience</a>
+    <nav class="site-nav" aria-label="Sections">
+      <div class="nav-group"><a href="/index.html">About</a></div>
+      <div class="nav-group"><a href="/publications.html">Publications</a></div>
+      <div class="nav-group"><a href="/experience.html">Work Experience</a></div>
+      <div class="nav-group"><a href="/datasets.html">Datasets</a></div>
+      <div class="nav-group"><a href="/talks.html">Talks</a></div>
+      <div class="nav-group"><a href="/outreach.html">Outreach</a></div>
+      <div class="nav-group"><a href="/speaking.html">Speaking &amp; Media</a></div>
+      <div class="nav-group"><a href="/awards.html">Awards</a></div>
+      <div class="nav-group"><a href="/mentorship.html">Mentorship</a></div>
+      <div class="nav-group"><a href="/writing.html">Writing</a></div>
     </nav>
 
     <main>
@@ -41,5 +42,6 @@
       <p>That page does not exist. Use the navigation to find what you are looking for, or start from the <a href="/index.html">About page</a>.</p>
     </main>
   </div>
+<script>document.addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector("a.active");if(a&&window.innerWidth<=700){n.scrollLeft=a.parentNode.offsetLeft-(n.clientWidth-a.offsetWidth)/2;}});</script>
 </body>
 </html>

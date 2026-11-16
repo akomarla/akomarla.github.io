@@ -27,7 +27,7 @@ body {
 nav {
   position: sticky;
   top: 64px;
-  width: 160px;
+  width: 180px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -44,6 +44,12 @@ nav a {
 }
 nav a:hover { color: #555; }
 nav a.active { color: #111; }
+.nav-group > a {
+  font-size: 0.78rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
 
 html { scroll-behavior: smooth; overflow-y: scroll; }
 
@@ -52,7 +58,7 @@ html { scroll-behavior: smooth; overflow-y: scroll; }
   font-weight: normal;
   font-size: inherit;
   color: #333;
-  -webkit-text-stroke: 0.45px currentColor;
+  -webkit-text-stroke: 0.2px currentColor;
 }
 h2[id] { scroll-margin-top: 24px; }
 
@@ -165,42 +171,75 @@ h3 {
 @media (max-width: 700px) {
   body { display: block; }
   .wrapper { flex-direction: column; padding: 0 16px 60px; gap: 0; min-height: unset; }
-  nav {
+
+  /* Main tabs: one sticky row that scrolls sideways. */
+  nav.site-nav {
     position: sticky;
     top: 0;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    margin-bottom: 32px;
     z-index: 100;
+    width: auto;
+    align-self: stretch;
+    margin: 0 -16px;
+    padding: 0 16px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 18px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
   }
-  nav a { font-size: 0.82rem; margin-right: 14px; padding: 4px 0; }
+  nav.site-nav::-webkit-scrollbar { display: none; }
+  .nav-group { flex: 0 0 auto; }
+  .nav-group > a {
+    font-size: 0.72rem;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 14px 0 12px;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-group > a.active { border-bottom-color: #111; }
   .site-nav .subnav,
   .site-nav .nav-group.active .subnav,
   .site-nav .nav-group:hover .subnav,
   .site-nav .nav-group:focus-within .subnav { display: none; }
-  .item-link, .item-title, .item-venue { overflow-wrap: anywhere; }
-  .jump-nav {
+
+  /* Section links for the current page: second sticky row. */
+  nav.jump-nav {
+    position: sticky;
+    top: 41px;
+    z-index: 99;
+    width: auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px 8px;
-    margin: 0 0 8px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -16px;
+    padding: 10px 16px;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
   }
+  .jump-nav::-webkit-scrollbar { display: none; }
   .jump-nav a {
-    font-size: 0.78rem;
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+    line-height: 1;
+    white-space: nowrap;
     color: #555;
     text-decoration: none;
-    border: 1px solid #ddd;
+    background: #f4f4f4;
     border-radius: 999px;
-    padding: 2px 10px;
+    padding: 7px 12px;
   }
-  .jump-nav a:hover { color: #111; border-color: #999; }
-  h2[id] { scroll-margin-top: 110px; }
-  main { padding-top: 24px; }
+  .jump-nav a:hover { color: #111; background: #e9e9e9; }
+
+  .item-link, .item-title, .item-venue { overflow-wrap: anywhere; }
+  h2[id] { scroll-margin-top: 100px; }
+  main { padding-top: 0; align-self: stretch; }
+  main > h1:not(.sr-only) { margin-top: 28px; }
   h1 { font-size: 1.6rem; }
   .links a, .links span { font-size: 0.85rem; margin-right: 10px; }
 }
