@@ -229,3 +229,20 @@ h3 {
   h1 { font-size: 1.6rem; }
   .links a, .links span { font-size: 0.85rem; margin-right: 10px; }
 }
+
+/* About page intro: text with an optional photo beside it. */
+.intro { display: flex; align-items: flex-start; gap: 36px; scroll-margin-top: 130px; }
+.intro-text { flex: 1; min-width: 0; }
+.intro-photo {
+  flex: 0 0 auto;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 6px;
+}
+@media (max-width: 700px) {
+  .intro { flex-direction: column-reverse; align-items: stretch; gap: 16px; margin-top: 24px; scroll-margin-top: 100px; }
+  .intro-photo { align-self: flex-start; }
+  .intro-photo { width: 112px; height: 112px; margin-top: 0; }
+}
