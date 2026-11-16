@@ -91,7 +91,7 @@ nav.jump-nav {
 }
 .jump-nav a:hover { color: #111; background: #e9e9e9; }
 .jump-nav a.current { color: #fff; background: #333; }
-h2[id] { scroll-margin-top: 130px; }
+h2[id] { scroll-margin-top: 150px; }
 
 main { flex: 1; min-width: 0; }
 
@@ -150,6 +150,8 @@ h2 {
   border-bottom: 1px solid #ddd;
 }
 h1.sr-only + h2 { margin-top: 8px; }
+.jump-nav + h1.sr-only + h2 { margin-top: 34px; }
+.jump-nav + .intro { margin-top: 26px; }
 
 /* Subsection heading, formerly .subheading */
 h3 {
