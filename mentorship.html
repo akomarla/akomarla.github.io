@@ -24,22 +24,84 @@
 </head>
 <body>
   <div class="wrapper">
-    <nav aria-label="Sections">
-      <a href="index.html">About</a>
-      <a href="publications.html">Publications</a>
-      <a href="datasets.html">Datasets</a>
-      <a href="awards.html">Awards</a>
-      <a href="talks.html">Talks</a>
-      <a href="speaking.html">Speaking &amp; Media</a>
-      <a href="writing.html">Writing</a>
-      <a href="mentorship.html" class="active">Mentorship</a>
-      <a href="experience.html">Experience</a>
+    <nav class="site-nav" aria-label="Sections">
+      <div class="nav-group">
+        <a href="index.html">About</a>
+        <div class="subnav">
+          <a href="index.html#current">Current Work</a>
+          <a href="index.html#past">Past Work</a>
+          <a href="index.html#education">Education</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <a href="publications.html">Publications</a>
+        <div class="subnav">
+          <a href="publications.html#journal">Journal Papers</a>
+          <a href="publications.html#practitioner">Practitioner Articles</a>
+          <a href="publications.html#conference">Conference Papers</a>
+          <a href="publications.html#workshop">Workshop Papers</a>
+          <a href="publications.html#demo">Demo Papers</a>
+          <a href="publications.html#preprints">Preprints</a>
+          <a href="publications.html#posters">Posters</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <a href="datasets.html">Datasets</a>
+      </div>
+      <div class="nav-group">
+        <a href="awards.html">Awards</a>
+        <div class="subnav">
+          <a href="awards.html#funding">Funding Raised</a>
+          <a href="awards.html#personal">Personal Awards</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <a href="talks.html">Talks</a>
+        <div class="subnav">
+          <a href="talks.html#applied-ai">Applied AI</a>
+          <a href="talks.html#industry">Industry</a>
+          <a href="talks.html#journalism">Data Science + Journalism</a>
+          <a href="talks.html#outreach">Outreach</a>
+          <a href="talks.html#other">Other</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <a href="speaking.html">Speaking &amp; Media</a>
+        <div class="subnav">
+          <a href="speaking.html#speaking">Speaking</a>
+          <a href="speaking.html#media">Media Features</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <a href="writing.html">Writing</a>
+        <div class="subnav">
+          <a href="writing.html#reports">Reports</a>
+          <a href="writing.html#op-eds">Op-Eds</a>
+        </div>
+      </div>
+      <div class="nav-group active">
+        <a href="mentorship.html" class="active" aria-current="page">Mentorship</a>
+        <div class="subnav">
+          <a href="mentorship.html#industry">Industry</a>
+          <a href="mentorship.html#education">Education</a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <a href="experience.html">Experience</a>
+        <div class="subnav">
+          <a href="experience.html#applied-ai">Applied AI</a>
+          <a href="experience.html#industry">Industry</a>
+          <a href="experience.html#journalism">Data Science + Journalism</a>
+          <a href="experience.html#research">Research</a>
+        </div>
+      </div>
     </nav>
 
     <main>
+      <nav class="jump-nav" aria-label="On this page"><a href="#industry">Industry</a> <a href="#education">Education</a></nav>
       <h1 class="sr-only">Mentorship</h1>
 
-      <h2>Industry</h2>
+      <h2 id="industry">Industry</h2>
 
       <div class="item">
         <div class="item-title">Industry Mentor</div>
@@ -52,7 +114,7 @@
         <div class="item-meta">Sponsored a legal AI challenge and mentored 45+ students in a 48-hour challenge to build data science solutions for resentencing.</div>
       </div>
 
-      <h2>Education</h2>
+      <h2 id="education">Education</h2>
 
       <div class="item">
         <div class="item-title">Course Instructor &mdash; Introductory Data Analysis</div>

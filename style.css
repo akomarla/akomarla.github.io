@@ -45,6 +45,33 @@ nav a {
 nav a:hover { color: #555; }
 nav a.active { color: #111; }
 
+html { scroll-behavior: smooth; }
+h2[id] { scroll-margin-top: 24px; }
+
+/* Sub-menus: always open for the current page, open on hover/focus for others. */
+.nav-group { display: flex; flex-direction: column; }
+.subnav {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 6px;
+  padding-left: 10px;
+  border-left: 1px solid #e5e5e5;
+}
+.subnav a {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #aaa;
+  padding: 1px 0;
+}
+.subnav a:hover { color: #111; }
+.nav-group.active .subnav,
+.nav-group:hover .subnav,
+.nav-group:focus-within .subnav { display: flex; }
+
+/* On-page section links, shown on small screens only. */
+.jump-nav { display: none; }
+
 main { flex: 1; min-width: 0; }
 
 h1 { font-size: 2rem; font-weight: bold; margin: 0 0 4px; }
@@ -144,6 +171,27 @@ h3 {
     z-index: 100;
   }
   nav a { font-size: 0.82rem; margin-right: 14px; padding: 4px 0; }
+  .site-nav .subnav,
+  .site-nav .nav-group.active .subnav,
+  .site-nav .nav-group:hover .subnav,
+  .site-nav .nav-group:focus-within .subnav { display: none; }
+  .item-link, .item-title, .item-venue { overflow-wrap: anywhere; }
+  .jump-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    margin: 0 0 8px;
+  }
+  .jump-nav a {
+    font-size: 0.78rem;
+    color: #555;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+  .jump-nav a:hover { color: #111; border-color: #999; }
+  h2[id] { scroll-margin-top: 110px; }
   main { padding-top: 24px; }
   h1 { font-size: 1.6rem; }
   .links a, .links span { font-size: 0.85rem; margin-right: 10px; }
